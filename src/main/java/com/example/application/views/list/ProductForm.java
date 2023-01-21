@@ -1,19 +1,21 @@
 package com.example.application.views.list;
 
         import com.example.application.data.entity.Company;
-        import com.example.application.data.entity.Status;
+        import com.example.application.data.entity.Contact;
         import com.vaadin.flow.component.Key;
         import com.vaadin.flow.component.button.Button;
         import com.vaadin.flow.component.button.ButtonVariant;
         import com.vaadin.flow.component.combobox.ComboBox;
         import com.vaadin.flow.component.formlayout.FormLayout;
         import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-        import com.vaadin.flow.component.textfield.EmailField;
         import com.vaadin.flow.component.textfield.TextField;
+        import com.vaadin.flow.data.binder.BeanValidationBinder;
+        import com.vaadin.flow.data.binder.Binder;
 
         import java.util.List;
 
 public class ProductForm extends FormLayout {
+    Binder<Contact> binder = new BeanValidationBinder<>(Contact.class);
     TextField productName = new TextField("Product name");
     TextField description = new TextField("Description");
     TextField buyingPrice = new TextField("buyingPrice");
@@ -24,6 +26,7 @@ public class ProductForm extends FormLayout {
     Button save = new Button("Save");
     Button delete = new Button("Delete");
     Button close = new Button("Cancel");
+    private Contact contact;
 
     public ProductForm(List<Company> companies) {
         addClassName("product-form");
@@ -38,7 +41,11 @@ public class ProductForm extends FormLayout {
                 company,
                 createButtonsLayout());
     }
-
+    public void setProduct(Contact contact){
+        this.contact = contact;
+        this.contact = contact;
+        binder.readBean(contact);
+    }
     private HorizontalLayout createButtonsLayout() {
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR);

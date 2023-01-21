@@ -23,7 +23,6 @@ public class ListView extends VerticalLayout {
 
     TextField filterText = new TextField();
     ContactForm form;
-    ProductForm pForm;
     private CrmService service;
 
     public ListView(CrmService service ) {
@@ -33,34 +32,19 @@ public class ListView extends VerticalLayout {
 
         configureGrid();
         configureForm();
-        configurePForm();
+
         
         
 
         add(
           getToolbar(),
-          getContent(),
-                getPContent()
+          getContent()
         );
 
         updateList();
         closeEditor();
     }
 
-    private Component getPContent() {
-        HorizontalLayout cont = new HorizontalLayout(grid,pForm);
-        cont.setFlexGrow(2,grid);
-        cont.setFlexGrow(1,pForm);
-        cont.addClassNames("cont");
-        cont.setSizeFull();
-
-        return cont;
-    }
-
-    private void configurePForm() {
-        pForm = new ProductForm(service.findAllCompanies());
-        pForm.setWidth("25em");
-    }
 
     private void closeEditor() {
         form.setContact(null);
