@@ -1,6 +1,5 @@
 # storeWarehouse2 🚀
-StoreWarehouse
-Spring MVC project
+<h1>Spring MVC project</h1>
 
 <h2>About login form 📝 </h2>
 
