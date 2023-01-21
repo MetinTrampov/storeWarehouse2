@@ -7,5 +7,5 @@ Spring MVC project
 Username - user<br>
 Password - userpass<br>
 
-When u gog into Worehouse you can see the list of empoeers which work there.
+When u log into Worehouse you can see the list of empoeers which work there.<br>
 You can also add edit and remove employeers because u are loged as Admin . 
